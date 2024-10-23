@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="itemList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <script>
+        const itemList = document.querySelector('#itemList');
+
+        itemList.addEventListener('click',(e)=>{
+
+            if(e.target.tagName === 'LI'){
+                e.target.innerText = 'new Item'
+                console.log('item is clicked')
+            }
+
+        })
+
+    </script>
+    
+</body>
+</html>

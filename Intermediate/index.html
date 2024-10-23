@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Event</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            height: 200vh;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Thottle</h1>
+   
+
+    <script>
+        function throttle(func,limit){
+            let lastEx  = 0;
+
+            return function(...args){
+                const now = Date.now();
+
+                if(now - lastEx >= limit){
+                    func(...args);
+                    lastEx = now;
+                }
+            }
+        }
+
+        const logScroll  = throttle(()=>{
+            console.log("You are scrolling")
+        },1000)
+
+        console.log("Scroll on web page")
+
+        window.addEventListener('scroll',logScroll)
+    </script>
+
+</body>
+
+</html>
